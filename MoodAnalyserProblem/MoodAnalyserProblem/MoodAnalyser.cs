@@ -15,16 +15,24 @@ namespace MoodAnalyserProblem
         }
         public string AnalyseMood() // this method is used to analyse the mood
         {
-            if (this.message.Contains("sad")) // if the message contains the word sad then this condition becomes true and returns SAD
+            try// try block is used to catch any exception occured inside block
             {
-                return "SAD";
+                if (this.message.Contains("sad")) // if the message contains the word sad then this condition becomes true and returns SAD
+                {
+                    return "SAD";
+                }
+                else // if condition becomes false then it will return HAPPY
+                {
+                    return "HAPPY";
+                }
             }
-            else // if condition becomes false then it will return HAPPY
+            catch//if exception is found in try block then it will return HAPPY
             {
                 return "HAPPY";
             }
         }
     }
 }
+
 
 

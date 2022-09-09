@@ -14,5 +14,16 @@ namespace TestProject1
             string mood = moodAnalyser.AnalyseMood(); //the value return from AnalyseMood method is stored in mood
             Assert.AreEqual(expected, mood); // checking whether both values are equal or not
         }
+
+        [TestMethod]
+        public void GivenMoodHappyShouldReturnHappy() // this method is for invalid mood like null value
+        {
+            string expected = "HAPPY";
+            string message = null;
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+            string mood = moodAnalyser.AnalyseMood();
+            Assert.AreEqual(expected, mood);
+
+        }
     }
 }
