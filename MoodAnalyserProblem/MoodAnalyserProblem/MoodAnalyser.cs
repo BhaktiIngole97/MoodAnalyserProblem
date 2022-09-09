@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MoodAnalyserProblem.MoodAnalyserCustomException;
 
 namespace MoodAnalyserProblem
 {
@@ -17,6 +18,10 @@ namespace MoodAnalyserProblem
         {
             try// try block is used to catch any exception occured inside block
             {
+                if (this.message.Equals(string.Empty)) // if message is empty then below exception is thrown
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                }
                 if (this.message.Contains("sad")) // if the message contains the word sad then this condition becomes true and returns SAD
                 {
                     return "SAD";
@@ -26,13 +31,11 @@ namespace MoodAnalyserProblem
                     return "HAPPY";
                 }
             }
-            catch//if exception is found in try block then it will return HAPPY
+            catch (NullReferenceException) // null value exception is catch and below custom exception is thrown
             {
-                return "HAPPY";
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
             }
         }
     }
 }
-
-
 
