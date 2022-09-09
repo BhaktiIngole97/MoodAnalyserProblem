@@ -10,6 +10,10 @@ namespace MoodAnalyserProblem
     public class MoodAnalyser
     {
         private string message;
+        public MoodAnalyser()
+        {
+
+        }
         public MoodAnalyser(string message) // created a constructor to assign the message received from UnitTest1 class
         {
             this.message = message;
